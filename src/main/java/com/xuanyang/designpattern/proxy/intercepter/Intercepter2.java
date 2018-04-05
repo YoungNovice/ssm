@@ -5,11 +5,11 @@ import java.lang.reflect.Method;
 /**
  * Created by Young on 2018/4/5.
  */
-public class MyIntercepter implements Intercepter {
+public class Intercepter2 implements Intercepter {
 
     @Override
     public boolean before(Object proxy, Object target, Method method, Object[] args) {
-        System.out.println("myIntecepter 调用之前");
+        System.out.println("Intercepter2 调用之前");
         return true;
     }
 
@@ -20,6 +20,6 @@ public class MyIntercepter implements Intercepter {
 
     @Override
     public void after(Object proxy, Object target, Method method, Object[] args) {
-        System.out.println("myIntecepter 调用之后");
+        System.out.println("Intercepter2 调用之后");
     }
 }

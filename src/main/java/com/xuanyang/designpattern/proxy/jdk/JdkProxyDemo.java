@@ -12,16 +12,19 @@ import java.lang.reflect.Proxy;
 public class JdkProxyDemo implements InvocationHandler {
 
     /** 需要代理的目标对象*/
-    private Object target = null;
+    private Object target;
 
-    private Intercepter intercepter = null;
+    private Intercepter intercepter;
+
+    private JdkProxyDemo(Object target, Intercepter intercepter) {
+        this.target = target;
+        this.intercepter = intercepter;
+    }
 
     /** 获取代理对象的方法*/
-    public Object bind(Object o, Intercepter intercepter) {
-        this.target = o;
-        this.intercepter = intercepter;
+    public static Object bind(Object target, Intercepter intercepter) {
         return Proxy.newProxyInstance(target.getClass().getClassLoader(),
-                target.getClass().getInterfaces(), this);
+                target.getClass().getInterfaces(), new JdkProxyDemo(target, intercepter));
     }
 
     @Override
