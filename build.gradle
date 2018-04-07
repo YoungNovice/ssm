@@ -4,6 +4,15 @@ version '1.0-SNAPSHOT'
 apply plugin: 'java'
 apply plugin: 'idea'
 
+sourceSets {
+    main {
+        resources {
+            //可以将java目录下的所有非.java资源打包到classes下
+            srcDir 'src/main/java'
+        }
+    }
+}
+
 sourceCompatibility = 1.8
 targetCompatibility = 1.8
 
@@ -13,6 +22,14 @@ repositories {
         url "http://maven.aliyun.com/nexus/content/groups/public/"
     }
     mavenCentral()
+}
+
+
+
+processResources {
+    from ('src/main/java') {
+        include '**/*'
+    }
 }
 
 dependencies {
