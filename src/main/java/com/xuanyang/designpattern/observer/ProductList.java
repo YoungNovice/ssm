@@ -40,9 +40,11 @@ public class ProductList extends Observable {
     }
 
     public void addProduct(String product) {
+        //region 这个是我自定义的折叠区域 region endregion
         procuctList.add(product);
         System.out.println("新增了" + product);
         this.setChanged();
+        //endregion
         this.notifyObservers(product);
     }
 
