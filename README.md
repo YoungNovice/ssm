@@ -1,2 +1,2 @@
 # ssm
-init
+to practice java concurrent api and designpattern
