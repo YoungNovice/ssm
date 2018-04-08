@@ -12,7 +12,7 @@
       <transactionManager type="JDBC"/>
       <dataSource type="POOLED">
         <property name="driver" value="com.mysql.jdbc.Driver"/>
-        <property name="url" value="jdbc:mysql://www.qulianghong.cn:3306/test"/>
+        <property name="url" value="jdbc:mysql://www.qulianghong.cn:3306/chapter3"/>
         <property name="username" value="root"/>
         <property name="password" value="123456"/>
       </dataSource>
@@ -21,6 +21,6 @@
   <!-- 映射文件 -->
   <mappers>
     <mapper resource="com/learn/ssm/chapter3/mapper/RoleMapper.xml"/>
-    <mapper class="com.learn.ssm.chapter3.mapper.RoleMapper2"/> 
+    <mapper class="com.learn.ssm.chapter3.mapper.RoleMapper2"/>
   </mappers>
 </configuration>
