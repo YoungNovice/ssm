@@ -7,11 +7,14 @@
 
   <typeAliases>
       <!-- 别名 -->
-      <!--<typeAlias alias="role" type="com.learn.ssm.chapter3.pojo.Role"/>-->
-    <package name="com.learn.ssm"/>
+      <!--<typeAlias alias="role" typehandler="com.learn.ssm.chapter3.pojo.Role"/>-->
+    <package name="com.learn.ssm.chapter3.pojo"/>
   </typeAliases>
 
-
+  <typeHandlers>
+    <typeHandler handler="com.learn.ssm.chapter3.typehandler.MyTypeHandler" javaType="string" jdbcType="VARCHAR"/>
+      <!--<package name="" />-->
+  </typeHandlers>
 
   <!-- 数据库环境 -->
   <environments default="development">
