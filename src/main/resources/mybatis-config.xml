@@ -6,8 +6,7 @@
   <properties resource="jdbc.properties" />
 
   <typeAliases>
-      <!-- 别名 -->
-      <!--<typeAlias alias="role" typehandler="com.learn.ssm.chapter3.pojo.Role"/>-->
+    <!-- 别名 -->
     <typeAlias type="com.learn.ssm.chapter3.transaction.MyTransactionFactory" alias="mytransaction"/>
     <package name="com.learn.ssm.chapter3.pojo"/>
   </typeAliases>
