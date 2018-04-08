@@ -1,5 +1,9 @@
 package com.learn.ssm.chapter3.pojo;
 
+import org.apache.ibatis.type.Alias;
+
+
+@Alias("role")
 public class Role {
 
 	private Long id;

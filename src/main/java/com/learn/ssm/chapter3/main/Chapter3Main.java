@@ -21,7 +21,7 @@ public class Chapter3Main {
 			sqlSession = SqlSessionFactoryUtils.openSqlSession();
 			RoleMapper roleMapper = sqlSession.getMapper(RoleMapper.class);
 			Role role = roleMapper.getRole(2L);
-			log.info(role.getRoleName());
+			log.info(role.getRoleName()+role.getNote());
 		} finally {
 			if (sqlSession != null) {
 				sqlSession.close();
@@ -37,7 +37,7 @@ public class Chapter3Main {
 			sqlSession = SqlSessionFactoryUtils.openSqlSession();
 			RoleMapper2 roleMapper2 = sqlSession.getMapper(RoleMapper2.class);
 			Role role = roleMapper2.getRole(2L);
-			log.info(role.getRoleName());
+			log.info(role.getRoleName()+role.getNote());
 		} finally {
 			if (sqlSession != null) {
 				sqlSession.close();
