@@ -1,4 +1,4 @@
-package com.learn;
+package com.learn.ssm;
 
 import com.learn.ssm.chapter3.mapper.RoleMapper;
 import com.learn.ssm.chapter3.mapper.RoleMapper2;

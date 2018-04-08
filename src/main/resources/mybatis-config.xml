@@ -13,8 +13,13 @@
 
   <typeHandlers>
     <typeHandler handler="com.learn.ssm.chapter3.typehandler.MyTypeHandler" javaType="string" jdbcType="VARCHAR"/>
+    <package name="com.learn.ssm.chapter3.typehandler" />
       <!--<package name="" />-->
   </typeHandlers>
+
+  <objectFactory type="com.learn.ssm.chapter3.objectfactory.MyObjectFactory">
+    <property name="id" value="1" />
+  </objectFactory>
 
   <!-- 数据库环境 -->
   <environments default="development">
@@ -30,7 +35,8 @@
   </environments>
   <!-- 映射文件 -->
   <mappers>
-    <mapper resource="com/learn/ssm/chapter3/mapper/RoleMapper.xml"/>
-    <mapper class="com.learn.ssm.chapter3.mapper.RoleMapper2"/>
+    <!--<mapper resource="com/learn/ssm/chapter3/mapper/RoleMapper.xml"/>-->
+    <!--<mapper class="com.learn.ssm.chapter3.mapper.RoleMapper2"/>-->
+    <package name="com.learn.ssm.chapter3.mapper" />
   </mappers>
 </configuration>
