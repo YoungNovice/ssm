@@ -7,14 +7,14 @@
 
   <typeAliases>
     <!-- 别名 -->
-    <typeAlias type="com.learn.ssm.chapter3.transaction.MyTransactionFactory" alias="mytransaction"/>
+    <typeAlias alias="MY_TRANSATION" type="com.learn.ssm.chapter3.transaction.MyTransactionFactory" />
+    <typeAlias alias="DBCP" type="com.learn.ssm.chapter3.datasource.MyDataSourceFactory" />
     <package name="com.learn.ssm.chapter3.pojo"/>
   </typeAliases>
 
   <typeHandlers>
     <typeHandler handler="com.learn.ssm.chapter3.typehandler.MyTypeHandler" javaType="string" jdbcType="VARCHAR"/>
     <package name="com.learn.ssm.chapter3.typehandler" />
-      <!--<package name="" />-->
   </typeHandlers>
 
   <objectFactory type="com.learn.ssm.chapter3.objectfactory.MyObjectFactory">
@@ -24,8 +24,8 @@
   <!-- 数据库环境 -->
   <environments default="development">
     <environment id="development">
-      <transactionManager type="mytransaction"/>
-      <dataSource type="POOLED">
+      <transactionManager type="MY_TRANSATION"/>
+      <dataSource type="DBCP">
         <property name="driver" value="${database.driver}"/>
         <property name="url" value="${database.url}"/>
         <property name="username" value="${database.username}"/>
@@ -33,6 +33,8 @@
       </dataSource>
     </environment>
   </environments>
+
+
   <!-- 映射文件 -->
   <mappers>
     <!--<mapper resource="com/learn/ssm/chapter3/mapper/RoleMapper.xml"/>-->
