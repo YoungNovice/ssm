@@ -9,6 +9,7 @@
     <!-- 别名 -->
     <typeAlias alias="MY_TRANSATION" type="com.learn.ssm.chapter3.transaction.MyTransactionFactory" />
     <typeAlias alias="DBCP" type="com.learn.ssm.chapter3.datasource.MyDataSourceFactory" />
+    <typeAlias alias="MYDB" type="com.learn.ssm.chapter3.databaseid.MyDataBaseIdProvider" />
     <package name="com.learn.ssm.chapter3.pojo"/>
   </typeAliases>
 
@@ -34,7 +35,19 @@
     </environment>
   </environments>
 
-
+  <!--
+  在默认规则下name 是驱动的名字 value是databaseid
+  xml中配置的预警的id 可以一样但是databaseid 可以不一样
+  当没有匹配到就用没有databaseid的那一个 如果还找不到就抛异常
+  <databaseIdProvider type="DB_VENDOR">
+    <property name="Oracle" value="oracle"/>
+    <property name="MySQL" value="mysql"/>
+  </databaseIdProvider>
+  -->
+  
+  <databaseIdProvider type="MYDB">
+    <property name="xxx" value="bbb" />
+  </databaseIdProvider>
   <!-- 映射文件 -->
   <mappers>
     <!--<mapper resource="com/learn/ssm/chapter3/mapper/RoleMapper.xml"/>-->

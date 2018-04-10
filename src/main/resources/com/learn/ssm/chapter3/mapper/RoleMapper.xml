@@ -21,7 +21,7 @@
 		update t_role set role_name = #{roleName}, note = #{note} where id= #{id}
 	</update>
 
-	<select id="getRole" parameterType="long" resultMap="roleMapper">
+	<select id="getRole" databaseId="mysql" parameterType="long" resultMap="roleMapper">
 		select id,
 		role_name as roleName, note from t_role where id = #{id}
 	</select>
