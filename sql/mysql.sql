@@ -1,4 +1,4 @@
-create database chapter3;
+-- create database chapter3;
 
 use chapter3;
 
