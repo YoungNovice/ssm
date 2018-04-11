@@ -14,13 +14,14 @@ public class HelloSchedualer {
     public static void main(String[] args) {
 
         JobBuilder jobBuilder = JobBuilder.newJob(HelloWorldJob.class);
+        jobBuilder.usingJobData("myint", 1);
         // 通过JobBuilder 创建jobDetail
         JobDetail jobDetail = jobBuilder.withIdentity("myjob", "group1").build();
-
         // 通过triggerBuilder 创建 trigger
         TriggerBuilder<Trigger> triggerBuilder = TriggerBuilder.newTrigger();
         triggerBuilder.withIdentity("myTrigger", "group1");
         triggerBuilder.startNow();
+        triggerBuilder.usingJobData("myint", 2);
 
         // 创建scheduleBuilder triggerBuilder 需要用到它
         SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder.simpleSchedule();
