@@ -1,5 +1,9 @@
 package com.xuanyang.concurrent.func;
 
+/**
+ *
+ * @author Young
+ */
 public class TodoItem {
 
     private String name;

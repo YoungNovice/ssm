@@ -11,6 +11,7 @@ package com.xuanyang.concurrent.func;
  * so we loop fivty time
  *
  *
+ * @author Young
  */
 public class ThreadCommunicate {
 

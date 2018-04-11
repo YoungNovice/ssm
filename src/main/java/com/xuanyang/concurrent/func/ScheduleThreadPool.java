@@ -5,6 +5,9 @@ import java.util.concurrent.ScheduledExecutorService;
 import java.util.concurrent.ThreadFactory;
 import java.util.concurrent.TimeUnit;
 
+/**
+ * @author xuanyang
+ */
 public class ScheduleThreadPool {
 
     public static void main(String[] args) {

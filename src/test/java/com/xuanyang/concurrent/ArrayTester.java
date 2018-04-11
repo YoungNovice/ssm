@@ -1,17 +1,24 @@
-package com.xuanyang.concurrent.func;
+package com.xuanyang.concurrent;
+
+import org.junit.Test;
 
 import java.util.Arrays;
 
-public class App {
+/**
+ * Created by Young on 2018/4/11.
+ *
+ * @author Young
+ */
+public class ArrayTester {
 
-    public static void main(String[] args) {
+    @Test
+    public void testArray() {
         // 数组的父类都是Object
         int[] a1 = new int[3];
         int[] a2 = new int[4];
         int[][] a3 = new int[2][3];
         String[] a4 = new String[3];
         String[][] a5 = new String[3][3];
-
 
         // 任何类型的数组都可以用Object接收
         // 这是因为任何数组类型的父类都是Object
@@ -33,8 +40,8 @@ public class App {
         String[] stringarr = {"a", "b", "c"};
         System.out.println(Arrays.asList(arr1));
         System.out.println(Arrays.asList(stringarr));
-
-
     }
+
+
 
 }
