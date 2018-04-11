@@ -7,7 +7,7 @@ import java.util.Date;
 
 
 /**
- * 
+ * cron表达式 【秒】【分】【时】【日】【月】【周】【年】
  * 
  * @author xuanyang
  */
@@ -32,7 +32,8 @@ public class HelloSchedualer {
         // 创建scheduleBuilder triggerBuilder 需要用到它
         SimpleScheduleBuilder scheduleBuilder = SimpleScheduleBuilder.simpleSchedule();
         scheduleBuilder.withIntervalInSeconds(2);
-        scheduleBuilder.repeatForever();
+//        SimpleTrigger.REPEAT_INDEFINITELY
+        scheduleBuilder.withRepeatCount(3);
 
 
         triggerBuilder.withSchedule(scheduleBuilder);
@@ -42,8 +43,10 @@ public class HelloSchedualer {
         StdSchedulerFactory factory = new StdSchedulerFactory();
         try {
             Scheduler scheduler = factory.getScheduler();
-            scheduler.scheduleJob(jobDetail, trigger);
             scheduler.start();
+            // 挂起scheduler 挂起的scheduler 是可以重新start的
+//            scheduler.standby();
+            scheduler.scheduleJob(jobDetail, trigger);
         } catch (SchedulerException e) {
             e.printStackTrace();
         }

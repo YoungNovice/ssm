@@ -24,7 +24,7 @@ public class HelloWorldJob implements Job {
     @Override
     public void execute(JobExecutionContext context) throws JobExecutionException {
         map(context);
-        time(context);
+//        time(context);
         System.out.println("Hello World" + myint);
     }
 
