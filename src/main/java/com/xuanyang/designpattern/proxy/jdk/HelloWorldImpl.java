@@ -1,7 +1,9 @@
 package com.xuanyang.designpattern.proxy.jdk;
 
 /**
- * Created by Young on 2018/4/5.
+ *
+ * @author Young
+ * @date 2018/4/5
  */
 public class HelloWorldImpl implements HelloWorld {
 

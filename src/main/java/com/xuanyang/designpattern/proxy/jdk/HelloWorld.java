@@ -7,5 +7,8 @@ package com.xuanyang.designpattern.proxy.jdk;
  */
 public interface HelloWorld {
 
+    /**
+     * say
+     * */
     void say();
 }

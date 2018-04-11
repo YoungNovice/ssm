@@ -7,7 +7,9 @@ import java.lang.reflect.Method;
 import java.lang.reflect.Proxy;
 
 /**
- * Created by Young on 2018/4/5.
+ *
+ * @author Young
+ * @date 2018/4/5
  */
 public class JdkProxyDemo implements InvocationHandler {
 
