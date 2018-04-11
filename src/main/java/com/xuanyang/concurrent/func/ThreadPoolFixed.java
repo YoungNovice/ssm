@@ -1,23 +1,28 @@
 package com.xuanyang.concurrent.func;
 
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Young
  */
 public class ThreadPoolFixed {
 
-    public static final int INT = 5;
+    public static final int FIVE = 5;
+    public static final int INT = FIVE;
+    public static final int TEN = 10;
 
     public static void main(String[] args) {
-        ExecutorService threadPool = Executors.newFixedThreadPool(3);
-        for (int j = 0; j < 5; j++) {
+        ThreadPoolExecutor threadPool = new ThreadPoolExecutor(3, 3, 3,
+                TimeUnit. SECONDS, new ArrayBlockingQueue<>(3),
+                new ThreadPoolExecutor.DiscardOldestPolicy());
+        for (int j = 0; j < FIVE; j++) {
             final int x = j;
             threadPool.submit(new Runnable() {
                 @Override
                 public void run() {
-                    for (int i = 0; i < 10; i++) {
+                    for (int i = 0; i < TEN; i++) {
                         System.out.println(Thread.currentThread().getName() + "loop of i= " + i + "outer loop of= " + x);
                     }
                 }

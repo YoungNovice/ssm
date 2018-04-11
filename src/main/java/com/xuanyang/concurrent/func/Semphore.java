@@ -1,10 +1,11 @@
 package com.xuanyang.concurrent.func;
 
+import java.util.concurrent.ArrayBlockingQueue;
 import java.util.concurrent.BrokenBarrierException;
 import java.util.concurrent.CyclicBarrier;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
 import java.util.concurrent.Semaphore;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 
 /**
  * @author Young
@@ -16,7 +17,9 @@ public class Semphore {
 
         Semaphore semaphore = new Semaphore(2);
         CyclicBarrier barrier = new CyclicBarrier(2);
-        ExecutorService executor = Executors.newSingleThreadExecutor();
+        ThreadPoolExecutor executor = new ThreadPoolExecutor(2, 2, 2,
+                TimeUnit. SECONDS, new ArrayBlockingQueue<>(2),
+                new ThreadPoolExecutor.DiscardOldestPolicy());
         executor.submit(new Runnable() {
             @Override
             public void run() {
@@ -46,8 +49,7 @@ public class Semphore {
 
             }
         });
-
-        new Thread(new Runnable() {
+        executor.submit(new Runnable() {
             @Override
             public void run() {
                 while (true) {
@@ -65,8 +67,8 @@ public class Semphore {
                         e.printStackTrace();
                     }
                 }
-            }
-        }).start();
 
+            }
+        });
     }
 }

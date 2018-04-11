@@ -1,12 +1,16 @@
 package com.xuanyang.concurrent.func;
 
 import java.util.Random;
-import java.util.concurrent.ExecutorService;
-import java.util.concurrent.Executors;
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
 /**
  * @author Young
+ *
+ * 获取固定的线程池 不推荐使用
+ * ExecutorService threadPool = Executors.newFixedThreadPool(6);
  */
 public class ReadAndWriteLockTest {
 
@@ -15,9 +19,11 @@ public class ReadAndWriteLockTest {
     public static void main(String[] args) {
         Queue queue = new Queue();
 
-        ExecutorService threadPool = Executors.newFixedThreadPool(6);
+        ThreadPoolExecutor service = new ThreadPoolExecutor(6, 6, 6,
+                TimeUnit. SECONDS, new ArrayBlockingQueue<>(6),
+                new ThreadPoolExecutor.DiscardOldestPolicy());
         for (int i = 0; i < THREE; i++) {
-            threadPool.submit(new Runnable() {
+            service.submit(new Runnable() {
                 @Override
                 public void run() {
                     while (true) {
@@ -28,7 +34,7 @@ public class ReadAndWriteLockTest {
         }
 
         for (int i = 0; i < THREE; i++) {
-            threadPool.submit(new Runnable() {
+            service.submit(new Runnable() {
                 @Override
                 public void run() {
                     while (true) {
@@ -51,7 +57,6 @@ class Queue {
     private ReentrantReadWriteLock lock = new ReentrantReadWriteLock();
 
     public void get() {
-
         try {
             lock.readLock().lock();
             System.out.println(Thread.currentThread().getName());
@@ -77,7 +82,5 @@ class Queue {
         } finally {
             lock.writeLock().unlock();
         }
-
     }
-
 }

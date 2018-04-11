@@ -1,6 +1,10 @@
 package com.xuanyang.concurrent.func;
 
 
+import java.util.concurrent.ArrayBlockingQueue;
+import java.util.concurrent.ThreadPoolExecutor;
+import java.util.concurrent.TimeUnit;
+
 /**
  * thread communicate
  *
@@ -15,21 +19,24 @@ package com.xuanyang.concurrent.func;
  */
 public class ThreadCommunicate {
 
+    public static final int FIVE = 5;
+
     public static void main(String[] args) {
+
+        ThreadPoolExecutor service = new ThreadPoolExecutor(FIVE, 10, FIVE,
+                TimeUnit.SECONDS, new ArrayBlockingQueue<>(10),
+                new ThreadPoolExecutor.DiscardOldestPolicy());
+
         final Buiness buiness = new Buiness();
-        new Thread(new Runnable() {
+        service.submit(new Runnable() {
             @Override
             public void run() {
-                for (int i = 0; i < 5; i++) {
-                    // todo sub thread buiness
-                     buiness.subDo(i);
-
+                for (int i = 0; i < FIVE; i++) {
+                    buiness.subDo(i);
                 }
             }
-        }).start();
-
-        for (int i = 0; i < 5; i++) {
-            // todo main thread buiness
+        });
+        for (int i = 0; i < FIVE; i++) {
             buiness.mainDo(i);
         }
     }
