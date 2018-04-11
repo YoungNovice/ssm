@@ -5,6 +5,8 @@ import java.util.Observer;
 
 /**
  * Created by Young on 2018/4/5.
+ *
+ * @author xuanyang
  */
 public class TbObserver implements Observer{
 

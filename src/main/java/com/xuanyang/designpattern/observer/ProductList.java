@@ -11,6 +11,7 @@ import java.util.concurrent.locks.ReentrantLock;
  * Created by Young on 2018/4/5.
  *
  * 被观察者
+ * @author xuanyang
  */
 public class ProductList extends Observable {
 

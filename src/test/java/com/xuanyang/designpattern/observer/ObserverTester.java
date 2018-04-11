@@ -10,7 +10,7 @@ public class ObserverTester {
     @Test
     public void testDemo() {
         ProductList list = ProductList.getInstance();
-        list.add(new JDObserver()).add(new TbObserver());
+        list.add(new JdObserver()).add(new TbObserver());
         list.addProduct("一个华为P20手机");
     }
 }
