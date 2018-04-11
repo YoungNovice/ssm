@@ -3,6 +3,9 @@ package com.learn.ssm.chapter3.pojo;
 import com.learn.ssm.chapter3.enumeration.SexEnum;
 import org.apache.ibatis.type.Alias;
 
+/**
+ * @author Young
+ */
 @Alias("user")
 public class User {
 	private Long id;

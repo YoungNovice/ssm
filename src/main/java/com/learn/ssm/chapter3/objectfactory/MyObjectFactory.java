@@ -6,6 +6,9 @@ import org.apache.log4j.Logger;
 import java.util.List;
 import java.util.Properties;
 
+/**
+ * @author Young
+ */
 public class MyObjectFactory extends DefaultObjectFactory {
 
     private Logger logger = Logger.getLogger(MyObjectFactory.class);

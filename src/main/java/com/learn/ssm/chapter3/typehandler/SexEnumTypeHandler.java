@@ -12,6 +12,9 @@ import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
+/**
+ * @author Young
+ */
 @MappedTypes(SexEnum.class)
 @MappedJdbcTypes(JdbcType.INTEGER)
 public class SexEnumTypeHandler implements TypeHandler<SexEnum>{

@@ -1,7 +1,13 @@
 package com.learn.ssm.chapter3.enumeration;
 
+/**
+ * @author Young
+ */
+
 public enum SexEnum {
+	/** 男*/
 	MALE(1, "男"),
+	/** 女*/
 	FEMALE(0, "女");
 
 	private int id;

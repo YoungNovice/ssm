@@ -14,9 +14,11 @@ import java.sql.SQLException;
  * 当用package 方式配置TypeHandler 时需要用注解告知Type 和 JdbcType
  *
  * @author young
+ *
+ * 用下面两个注解映射jdbctype 和 javatype
+ * MappedTypes()
+ * MappedJdbcTypes()
  */
-//@MappedTypes()
-//@MappedJdbcTypes()
 public class MyTypeHandler implements TypeHandler<String> {
 
     Logger logger = Logger.getLogger(MyTypeHandler.class);

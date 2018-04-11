@@ -8,7 +8,9 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 /**
- * Created by Young on 2018/4/9.
+ *
+ * @author Young
+ * @date 2018/4/9
  */
 public class MyDataSourceFactory implements DataSourceFactory {
 

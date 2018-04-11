@@ -8,6 +8,9 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.util.Properties;
 
+/**
+ * @author Young
+ */
 public class MyTransactionFactory implements TransactionFactory {
 
     @Override

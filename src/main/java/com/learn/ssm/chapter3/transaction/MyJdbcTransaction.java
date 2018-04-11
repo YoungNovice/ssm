@@ -9,6 +9,9 @@ import javax.sql.DataSource;
 import java.sql.Connection;
 import java.sql.SQLException;
 
+/**
+ * @author Young
+ */
 public class MyJdbcTransaction extends JdbcTransaction implements Transaction{
 
     private Logger logger = Logger.getLogger(MyJdbcTransaction.class);

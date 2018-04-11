@@ -3,6 +3,9 @@ package com.learn.ssm.chapter3.pojo;
 import org.apache.ibatis.type.Alias;
 
 
+/**
+ * @author Young
+ */
 @Alias("role")
 public class Role {
 

@@ -1,8 +1,8 @@
 package com.learn.ssm.chapter3.utils;
 
-import java.io.IOException;
-import java.io.InputStream;
-
+import com.learn.ssm.chapter3.mapper.RoleMapper;
+import com.learn.ssm.chapter3.mapper.RoleMapper2;
+import com.learn.ssm.chapter3.pojo.Role;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.mapping.Environment;
@@ -13,10 +13,12 @@ import org.apache.ibatis.session.SqlSessionFactoryBuilder;
 import org.apache.ibatis.transaction.TransactionFactory;
 import org.apache.ibatis.transaction.jdbc.JdbcTransactionFactory;
 
-import com.learn.ssm.chapter3.mapper.RoleMapper;
-import com.learn.ssm.chapter3.mapper.RoleMapper2;
-import com.learn.ssm.chapter3.pojo.Role;
+import java.io.IOException;
+import java.io.InputStream;
 
+/**
+ * @author Young
+ */
 public class SqlSessionFactoryUtils {
 
 	private final static Class<SqlSessionFactoryUtils> LOCK = SqlSessionFactoryUtils.class;
@@ -44,8 +46,7 @@ public class SqlSessionFactoryUtils {
 		}
 	}
 
-
-	//代码生成SqlSessionFactory
+	/** 代码生成SqlSessionFactory*/
 	public static SqlSessionFactory getSqlSessionFactory2() {
 		synchronized (LOCK) {
 			//数据库连接池信息
