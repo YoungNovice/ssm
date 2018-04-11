@@ -3,7 +3,12 @@ package com.xuanyang.concurrent.func;
 import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 
+/**
+ * @author Young
+ */
 public class ThreadPoolFixed {
+
+    public static final int INT = 5;
 
     public static void main(String[] args) {
         ExecutorService threadPool = Executors.newFixedThreadPool(3);

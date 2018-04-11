@@ -37,6 +37,7 @@ public class ThreadCommunicate {
 
 class Buiness {
 
+    private static final int THREE = 3;
     private boolean isSubThreadDo = true;
 
     public synchronized void subDo(int times) {
@@ -48,7 +49,7 @@ class Buiness {
             }
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < THREE; i++) {
             System.out.println("sub thread "+ i + "loop times is " + times);
         }
         isSubThreadDo = false;
@@ -64,7 +65,7 @@ class Buiness {
             }
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < THREE; i++) {
             System.out.println("main thread "+ i + "loop times is " + times);
         }
 

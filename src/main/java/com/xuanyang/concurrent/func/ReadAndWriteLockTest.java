@@ -5,13 +5,18 @@ import java.util.concurrent.ExecutorService;
 import java.util.concurrent.Executors;
 import java.util.concurrent.locks.ReentrantReadWriteLock;
 
+/**
+ * @author Young
+ */
 public class ReadAndWriteLockTest {
+
+    public static final int THREE = 3;
 
     public static void main(String[] args) {
         Queue queue = new Queue();
 
         ExecutorService threadPool = Executors.newFixedThreadPool(6);
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < THREE; i++) {
             threadPool.submit(new Runnable() {
                 @Override
                 public void run() {
@@ -22,7 +27,7 @@ public class ReadAndWriteLockTest {
             });
         }
 
-        for (int i = 0; i < 3; i++) {
+        for (int i = 0; i < THREE; i++) {
             threadPool.submit(new Runnable() {
                 @Override
                 public void run() {
@@ -36,7 +41,10 @@ public class ReadAndWriteLockTest {
 }
 
 
-// 共享数据业务最好提取到一个类中
+
+/**
+ *共享数据业务最好提取到一个类中
+*/
 class Queue {
     private Object data = null;
 
