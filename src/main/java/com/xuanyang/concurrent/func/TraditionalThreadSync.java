@@ -1,6 +1,9 @@
 package com.xuanyang.concurrent.func;
 
 
+/**
+ * @author Young
+ */
 public class TraditionalThreadSync {
 
     public static void main(String[] args) {
