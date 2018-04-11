@@ -3,6 +3,8 @@ package com.xuanyang.quartz;
 import org.quartz.*;
 import org.quartz.impl.StdSchedulerFactory;
 
+import java.util.Date;
+
 
 /**
  * 
@@ -20,7 +22,11 @@ public class HelloSchedualer {
         // 通过triggerBuilder 创建 trigger
         TriggerBuilder<Trigger> triggerBuilder = TriggerBuilder.newTrigger();
         triggerBuilder.withIdentity("myTrigger", "group1");
-        triggerBuilder.startNow();
+//        triggerBuilder.startNow();
+        // 设置开始执行时间
+        triggerBuilder.startAt(new Date(System.currentTimeMillis()+ 3000));
+        // 设置结束执行时间
+        triggerBuilder.endAt(new Date(System.currentTimeMillis()+ 20000));
         triggerBuilder.usingJobData("myint", 2);
 
         // 创建scheduleBuilder triggerBuilder 需要用到它
