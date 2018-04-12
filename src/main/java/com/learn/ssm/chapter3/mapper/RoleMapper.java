@@ -1,6 +1,7 @@
 package com.learn.ssm.chapter3.mapper;
 import com.learn.ssm.chapter3.pojo.Role;
 import org.apache.ibatis.annotations.Param;
+import org.apache.ibatis.session.RowBounds;
 
 import java.util.List;
 /**
@@ -10,13 +11,24 @@ public interface RoleMapper {
 
 
 	/**
+	 * rowBounds 在sql 中不用声明
+	 * @param roleName
+	 * @param note
+	 * @param rowBounds
+	 * @return
+	 */
+	List<Role> findByRowBounds(@Param("roleName") String roleName,
+							   @Param("note") String note,
+							   RowBounds rowBounds);
+
+	/**
 	 * 借助注解传递多参数 传递多参数的时候paramType 不需要写
 	 * @param roleName roleName
 	 * @param note note
 	 * @return List
 	 */
-	public List<Role> findRolesByAnnotation(@Param("roleName") String roleName,
-											@Param("note") String note);
+	List<Role> findRolesByAnnotation(@Param("roleName") String roleName,
+									 @Param("note") String note);
 
 	/**
 	 * insertRole

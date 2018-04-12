@@ -9,6 +9,13 @@
 		<result property="note" column="note" typeHandler="com.learn.ssm.chapter3.typehandler.MyTypeHandler" />
 	</resultMap>
 
+	<select id="findByRowBounds" resultType="role">
+		SELECT id, role_name as roleName , note from t_role WHERE role_name
+		LIKE concat('%',#{roleName} ,'%' ) and note
+		like concat('%',#{note} ,'%' )
+
+	</select>
+
 	<select id="findRolesByAnnotation" resultType="role">
 		SELECT * from t_role WHERE  role_name LIKE concat('%', #{roleName} , '%')
 		and note LIKE concat('%', #{roleName} , '%')
