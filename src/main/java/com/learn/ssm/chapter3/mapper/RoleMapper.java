@@ -1,11 +1,22 @@
 package com.learn.ssm.chapter3.mapper;
 import com.learn.ssm.chapter3.pojo.Role;
+import org.apache.ibatis.annotations.Param;
 
 import java.util.List;
 /**
  * @author Young
  */
 public interface RoleMapper {
+
+
+	/**
+	 * 借助注解传递多参数 传递多参数的时候paramType 不需要写
+	 * @param roleName roleName
+	 * @param note note
+	 * @return List
+	 */
+	public List<Role> findRolesByAnnotation(@Param("roleName") String roleName,
+											@Param("note") String note);
 
 	/**
 	 * insertRole

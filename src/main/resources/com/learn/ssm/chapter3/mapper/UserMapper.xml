@@ -20,6 +20,12 @@
 		<result property="email" column="email" />
 		<result property="note" column="note" />
 	</resultMap>
+
+	<select id="countUserByFirstName" parameterType="string" resultType="int">
+		select count(*) as total from t_user
+		WHERE user_name LIKE concat(#{firstName}, '%')
+	</select>
+
 	<select id="getUser" resultMap="userMapper" parameterType="long">
 	  select id, user_name, password, sex, mobile, tel, email, note from t_user 
       where id = #{id}

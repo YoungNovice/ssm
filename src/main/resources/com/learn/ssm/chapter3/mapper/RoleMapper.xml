@@ -9,6 +9,11 @@
 		<result property="note" column="note" typeHandler="com.learn.ssm.chapter3.typehandler.MyTypeHandler" />
 	</resultMap>
 
+	<select id="findRolesByAnnotation" resultType="role">
+		SELECT * from t_role WHERE  role_name LIKE concat('%', #{roleName} , '%')
+		and note LIKE concat('%', #{roleName} , '%')
+	</select>
+
 	<insert id="insertRole" parameterType="role">
 		insert into t_role(role_name, note) values(#{roleName}, #{note})
 	</insert>

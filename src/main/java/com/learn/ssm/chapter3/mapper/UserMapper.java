@@ -8,6 +8,13 @@ import com.learn.ssm.chapter3.pojo.User;
 public interface UserMapper {
 
 	/**
+	 * 计算count
+	 * @param firstName
+	 * @return
+	 */
+	int countUserByFirstName(String firstName);
+
+	/**
 	 *  getUser
 	 * @param id key
 	 * @return User
