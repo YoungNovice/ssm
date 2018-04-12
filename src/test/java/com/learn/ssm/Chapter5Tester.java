@@ -1,8 +1,8 @@
 package com.learn.ssm;
 
-import com.learn.ssm.chapter3.mapper2.RoleMapper;
+import com.learn.ssm.chapter3.mapper.RoleMapper;
 import com.learn.ssm.chapter3.mapper2.UserMapper;
-import com.learn.ssm.chapter3.pojo2.Role;
+import com.learn.ssm.chapter3.pojo.Role;
 import com.learn.ssm.chapter3.utils.SqlSessionFactoryUtils;
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
@@ -40,8 +40,8 @@ public class Chapter5Tester {
         SqlSession session = SqlSessionFactoryUtils.openSqlSession();
         RoleMapper mapper = session.getMapper(RoleMapper.class);
         RowBounds bounds = new RowBounds(0, 20);
-        List<Role> roles = mapper.findByRowBounds("", "", bounds);
-        logger.info("rowBounds" + roles);
+//        List<Role> roles = mapper.findByRowBounds("", "", bounds);
+//        logger.info("rowBounds" + roles);
     }
 
     @Test

@@ -1,7 +1,7 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ssm.chapter3.mapper.RoleMapper">
+<mapper namespace="com.learn.ssm.chapter3.mapper.RoleMapper">
     <!-- 测试一级缓存  -->
     <!-- 
     <cache/>
@@ -17,7 +17,7 @@
 		select id, role_name, note from t_role where id = #{id}
 	</select>
 
-	<select id="getRole" parameterType="long" resultType="com.ssm.chapter3.pojo.Role">
+	<select id="getRole" parameterType="long" resultType="com.learn.ssm.chapter3.pojo.Role">
 		select id,
 		role_name as roleName, note from t_role where id = #{id}
 	</select>
@@ -37,7 +37,7 @@
 		and note like concat('%', #{note}, '%')
 	</select>
 
-	<select id="findRolesByBean" parameterType="com.ssm.chapter3.param.RoleParams"
+	<select id="findRolesByBean" parameterType="com.learn.ssm.chapter3.param.RoleParams"
 		resultType="role">
 		select id, role_name as roleName, note from t_role
 		where

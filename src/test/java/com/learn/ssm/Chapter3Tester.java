@@ -1,8 +1,8 @@
 package com.learn.ssm;
 
-import com.learn.ssm.chapter3.mapper2.RoleMapper;
+import com.learn.ssm.chapter3.mapper.RoleMapper;
 import com.learn.ssm.chapter3.mapper2.RoleMapper2;
-import com.learn.ssm.chapter3.pojo2.Role;
+import com.learn.ssm.chapter3.pojo.Role;
 import com.learn.ssm.chapter3.utils.SqlSessionFactoryUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;
@@ -34,7 +34,7 @@ public class Chapter3Tester {
         try {
             sqlSession = SqlSessionFactoryUtils.openSqlSession();
             RoleMapper2 roleMapper2 = sqlSession.getMapper(RoleMapper2.class);
-            Role role = roleMapper2.getRole(2L);
+            com.learn.ssm.chapter3.pojo2.Role role = roleMapper2.getRole(2L);
             log.info(role.getRoleName()+role.getNote());
         } finally {
             if (sqlSession != null) {

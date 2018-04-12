@@ -2,38 +2,38 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ssm.chapter3.mapper.EmployeeMapper">
-	<resultMap type="com.ssm.chapter3.pojo.Employee" id="employee">
+<mapper namespace="com.learn.ssm.chapter3.mapper.EmployeeMapper">
+	<resultMap type="com.learn.ssm.chapter3.pojo.Employee" id="employee">
 		<id column="id" property="id" />
 		<result column="real_name" property="realName" />
 		<result column="sex" property="sex"
-			typeHandler="com.ssm.chapter3.typeHandler.SexTypeHandler" />
+			typeHandler="com.learn.ssm.chapter3.typehandler.SexTypeHandler" />
 		<result column="birthday" property="birthday" />
 		<result column="mobile" property="mobile" />
 		<result column="email" property="email" />
 		<result column="position" property="position" />
 		<result column="note" property="note" />
 		<association property="workCard" column="id"
-			select="com.ssm.chapter3.mapper.WorkCardMapper.getWorkCardByEmpId" />
+			select="com.learn.ssm.chapter3.mapper.WorkCardMapper.getWorkCardByEmpId" />
 		<collection property="employeeTaskList" column="id"
 			fetchType="eager"
-			select="com.ssm.chapter3.mapper.EmployeeTaskMapper.getEmployeeTaskByEmpId" />
+			select="com.learn.ssm.chapter3.mapper.EmployeeTaskMapper.getEmployeeTaskByEmpId" />
 		<discriminator javaType="long" column="sex">
 			<case value="1" resultMap="maleHealthFormMapper" />
 			<case value="2" resultMap="femaleHealthFormMapper" />
 		</discriminator>
 	</resultMap>
 
-	<resultMap type="com.ssm.chapter3.pojo.FemaleEmployee" id="femaleHealthFormMapper"
+	<resultMap type="com.learn.ssm.chapter3.pojo.FemaleEmployee" id="femaleHealthFormMapper"
 		extends="employee">
 		<association property="femaleHealthForm" column="id"
-			select="com.ssm.chapter3.mapper.FemaleHealthFormMapper.getFemaleHealthForm" />
+			select="com.learn.ssm.chapter3.mapper.FemaleHealthFormMapper.getFemaleHealthForm" />
 	</resultMap>
 
-	<resultMap type="com.ssm.chapter3.pojo.MaleEmployee" id="maleHealthFormMapper"
+	<resultMap type="com.learn.ssm.chapter3.pojo.MaleEmployee" id="maleHealthFormMapper"
 		extends="employee">
 		<association property="maleHealthForm" column="id"
-			select="com.ssm.chapter3.mapper.MaleHealthFormMapper.getMaleHealthForm" />
+			select="com.learn.ssm.chapter3.mapper.MaleHealthFormMapper.getMaleHealthForm" />
 	</resultMap>
 
 	<select id="getEmployee" parameterType="long" resultMap="employee">
@@ -42,16 +42,16 @@
 		note from t_employee where id = #{id}
 	</select>
 
-	<resultMap id="employee2" type="com.ssm.chapter3.pojo.Employee">
+	<resultMap id="employee2" type="com.learn.ssm.chapter3.pojo.Employee">
 		<id column="id" property="id" />
 		<result column="real_name" property="realName" />
 		<result column="sex" property="sex"
-			typeHandler="com.ssm.chapter3.typeHandler.SexTypeHandler" />
+			typeHandler="com.learn.ssm.chapter3.typehandler.SexTypeHandler" />
 		<result column="birthday" property="birthday" />
 		<result column="mobile" property="mobile" />
 		<result column="email" property="email" />
 		<result column="position" property="position" />
-		<association property="workCard" javaType="com.ssm.chapter3.pojo.WorkCard"
+		<association property="workCard" javaType="com.learn.ssm.chapter3.pojo.WorkCard"
 			column="id">
 			<id column="wc_id" property="id" />
 			<result column="id" property="empId" />
@@ -61,13 +61,13 @@
 			<result column="wc_position" property="position" />
 			<result column="wc_note" property="note" />
 		</association>
-		<collection property="employeeTaskList" ofType="com.ssm.chapter3.pojo.EmployeeTask"
+		<collection property="employeeTaskList" ofType="com.learn.ssm.chapter3.pojo.EmployeeTask"
 			column="id">
 			<id column="et_id" property="id" />
 			<result column="id" property="empId" />
 			<result column="task_name" property="taskName" />
 			<result column="note" property="note" />
-			<association property="task" javaType="com.ssm.chapter3.pojo.Task"
+			<association property="task" javaType="com.learn.ssm.chapter3.pojo.Task"
 				column="et_task_id">
 				<id column="t_id" property="id" />
 				<result column="t_title" property="title" />
@@ -82,10 +82,10 @@
 	</resultMap>
 
 
-	<resultMap type="com.ssm.chapter3.pojo.MaleEmployee" id="maleHealthFormMapper2"
+	<resultMap type="com.learn.ssm.chapter3.pojo.MaleEmployee" id="maleHealthFormMapper2"
 		extends="employee2">
 		<association property="maleHealthForm" column="id"
-			javaType="com.ssm.chapter3.pojo.MaleHealthForm">
+			javaType="com.learn.ssm.chapter3.pojo.MaleHealthForm">
 			<id column="h_id" property="id" />
 			<result column="h_heart" property="heart" />
 			<result column="h_liver" property="liver" />
@@ -97,10 +97,10 @@
 		</association>
 	</resultMap>
 
-	<resultMap type="com.ssm.chapter3.pojo.FemaleEmployee" id="femaleHealthFormMapper2"
+	<resultMap type="com.learn.ssm.chapter3.pojo.FemaleEmployee" id="femaleHealthFormMapper2"
 		extends="employee">
 		<association property="femaleHealthForm" column="id"
-			javaType="com.ssm.chapter3.pojo.FemaleHealthForm">
+			javaType="com.learn.ssm.chapter3.pojo.FemaleHealthForm">
 			<id column="h_id" property="id" />
 			<result column="h_heart" property="heart" />
 			<result column="h_liver" property="liver" />
