@@ -10,7 +10,8 @@
     <typeAlias alias="MY_TRANSATION" type="com.learn.ssm.chapter3.transaction.MyTransactionFactory" />
     <typeAlias alias="DBCP" type="com.learn.ssm.chapter3.datasource.MyDataSourceFactory" />
     <typeAlias alias="MYDB" type="com.learn.ssm.chapter3.databaseid.MyDataBaseIdProvider" />
-    <package name="com.learn.ssm.chapter3.pojo2"/>
+    <!--<package name="com.learn.ssm.chapter3.pojo2"/>-->
+    <package name="com.learn.ssm.chapter3.pojo"/>
   </typeAliases>
 
   <typeHandlers>
@@ -52,6 +53,7 @@
   <mappers>
     <!--<mapper2 resource="com/learn/ssm/chapter3/mapper2/RoleMapper.xml"/>-->
     <!--<mapper2 class="com.learn.ssm.chapter3.mapper22.RoleMapper2"/>-->
-    <package name="com.learn.ssm.chapter3.mapper2" />
+    <!--<package name="com.learn.ssm.chapter3.mapper2" />-->
+    <package name="com.learn.ssm.chapter3.mapper" />
   </mappers>
 </configuration>
