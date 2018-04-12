@@ -1,8 +1,8 @@
 package com.learn.ssm;
 
-import com.learn.ssm.chapter3.mapper.RoleMapper;
-import com.learn.ssm.chapter3.mapper.UserMapper;
-import com.learn.ssm.chapter3.pojo.Role;
+import com.learn.ssm.chapter3.mapper2.RoleMapper;
+import com.learn.ssm.chapter3.mapper2.UserMapper;
+import com.learn.ssm.chapter3.pojo2.Role;
 import com.learn.ssm.chapter3.utils.SqlSessionFactoryUtils;
 import org.apache.ibatis.session.RowBounds;
 import org.apache.ibatis.session.SqlSession;
@@ -14,6 +14,23 @@ import java.util.List;
 public class Chapter5Tester {
 
     Logger logger = Logger.getLogger(Chapter5Tester.class);
+
+    @Test
+    public void testInsertRow() {
+        Role role = new Role();
+        role.setRoleName("aaa");
+        role.setNote("aaa 是一个好人");
+
+        SqlSession session = SqlSessionFactoryUtils.openSqlSession();
+        RoleMapper mapper = session.getMapper(RoleMapper.class);
+        try {
+            mapper.insertRole(role);
+            session.commit();
+        } catch (Exception e) {
+            session.rollback();
+            e.printStackTrace();
+        }
+    }
 
     /**
      * rowBounds 是对查询结果分页 性能不行 不要用

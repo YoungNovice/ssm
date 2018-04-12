@@ -1,6 +1,6 @@
-package com.learn.ssm.chapter3.mapper;
+package com.learn.ssm.chapter3.mapper2;
 
-import com.learn.ssm.chapter3.pojo.User;
+import com.learn.ssm.chapter3.pojo2.User;
 
 /**
  * @author Young

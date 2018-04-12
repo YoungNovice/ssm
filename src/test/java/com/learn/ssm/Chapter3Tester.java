@@ -1,8 +1,8 @@
 package com.learn.ssm;
 
-import com.learn.ssm.chapter3.mapper.RoleMapper;
-import com.learn.ssm.chapter3.mapper.RoleMapper2;
-import com.learn.ssm.chapter3.pojo.Role;
+import com.learn.ssm.chapter3.mapper2.RoleMapper;
+import com.learn.ssm.chapter3.mapper2.RoleMapper2;
+import com.learn.ssm.chapter3.pojo2.Role;
 import com.learn.ssm.chapter3.utils.SqlSessionFactoryUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;

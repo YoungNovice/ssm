@@ -1,4 +1,4 @@
-package com.learn.ssm.chapter3.pojo;
+package com.learn.ssm.chapter3.pojo2;
 
 import com.learn.ssm.chapter3.enumeration.SexEnum;
 import org.apache.ibatis.type.Alias;

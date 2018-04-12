@@ -1,4 +1,4 @@
-package com.learn.ssm.chapter3.pojo;
+package com.learn.ssm.chapter3.pojo2;
 
 import org.apache.ibatis.type.Alias;
 

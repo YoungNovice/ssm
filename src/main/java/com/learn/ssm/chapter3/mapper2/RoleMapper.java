@@ -1,5 +1,5 @@
-package com.learn.ssm.chapter3.mapper;
-import com.learn.ssm.chapter3.pojo.Role;
+package com.learn.ssm.chapter3.mapper2;
+import com.learn.ssm.chapter3.pojo2.Role;
 import org.apache.ibatis.annotations.Param;
 import org.apache.ibatis.session.RowBounds;
 
