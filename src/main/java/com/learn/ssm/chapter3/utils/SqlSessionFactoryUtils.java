@@ -1,8 +1,8 @@
 package com.learn.ssm.chapter3.utils;
 
-import com.learn.ssm.chapter3.mapper2.RoleMapper;
-import com.learn.ssm.chapter3.mapper2.RoleMapper2;
-import com.learn.ssm.chapter3.pojo2.Role;
+import com.learn.ssm.chapter3.mapper.RoleMapper;
+import com.learn.ssm.chapter3.mapper.RoleMapper2;
+import com.learn.ssm.chapter3.pojo.Role;
 import org.apache.ibatis.datasource.pooled.PooledDataSource;
 import org.apache.ibatis.io.Resources;
 import org.apache.ibatis.mapping.Environment;
@@ -47,6 +47,7 @@ public class SqlSessionFactoryUtils {
 	}
 
 	/** 代码生成SqlSessionFactory*/
+	@Deprecated
 	public static SqlSessionFactory getSqlSessionFactory2() {
 		synchronized (LOCK) {
 			//数据库连接池信息
