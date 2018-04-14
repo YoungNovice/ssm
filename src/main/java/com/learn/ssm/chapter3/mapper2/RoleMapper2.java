@@ -1,8 +1,8 @@
-package com.learn.ssm.chapter3.mapper;
+package com.learn.ssm.chapter3.mapper2;
 
 import org.apache.ibatis.annotations.Select;
 
-import com.learn.ssm.chapter3.pojo.Role;
+import com.learn.ssm.chapter3.pojo2.Role;
 
 /**
  * @author Young

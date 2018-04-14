@@ -1,7 +1,7 @@
 package com.learn.ssm;
 
-import com.learn.ssm.chapter3.mapper.UserMapper;
-import com.learn.ssm.chapter3.pojo.User;
+import com.learn.ssm.chapter3.mapper2.UserMapper;
+import com.learn.ssm.chapter3.pojo2.User;
 import com.learn.ssm.chapter3.utils.SqlSessionFactoryUtils;
 import org.apache.ibatis.session.SqlSession;
 import org.apache.log4j.Logger;

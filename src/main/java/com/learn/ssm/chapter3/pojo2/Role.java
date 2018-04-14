@@ -1,18 +1,19 @@
-package com.learn.ssm.chapter3.pojo;
-
-import java.io.Serializable;
+package com.learn.ssm.chapter3.pojo2;
 
 import org.apache.ibatis.type.Alias;
 
-@Alias("role")
-public class Role implements Serializable {
 
-	private static final long serialVersionUID = 598736524547906734L;
-	
+/**
+ * @author Young
+ */
+@Alias("role")
+public class Role {
+
 	private Long id;
 	private String roleName;
 	private String note;
 
+	/** setter and getter **/
 	public Long getId() {
 		return id;
 	}
@@ -35,10 +36,6 @@ public class Role implements Serializable {
 
 	public void setNote(String note) {
 		this.note = note;
-	}
-
-	public static long getSerialversionuid() {
-		return serialVersionUID;
 	}
 
 }

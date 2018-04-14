@@ -1,0 +1,45 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+  "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.learn.ssm.chapter3.mapper2.RoleMapper">
+
+	<resultMap id="roleMapper" type="role">
+		<result property="id" column="id" />
+		<result property="roleName" column="role_name" />
+		<result property="note" column="note" typeHandler="com.learn.ssm.chapter3.typehandler.MyTypeHandler" />
+	</resultMap>
+
+	<select id="findByRowBounds" resultType="role">
+		SELECT id, role_name as roleName , note from t_role WHERE role_name
+		LIKE concat('%',#{roleName} ,'%' ) and note
+		like concat('%',#{note} ,'%' )
+
+	</select>
+
+	<select id="findRolesByAnnotation" resultType="role">
+		SELECT * from t_role WHERE  role_name LIKE concat('%', #{roleName} , '%')
+		and note LIKE concat('%', #{roleName} , '%')
+	</select>
+
+	<insert id="insertRole" parameterType="role">
+		insert into t_role(role_name, note) values(#{roleName}, #{note})
+	</insert>
+
+	<delete id="deleteRole" parameterType="long">
+		delete from t_role where id= #{id}
+	</delete>
+
+	<update id="updateRole" parameterType="role">
+		update t_role set role_name = #{roleName}, note = #{note} where id= #{id}
+	</update>
+
+	<select id="getRole" databaseId="mysql" parameterType="long" resultMap="roleMapper">
+		select id,
+		role_name as roleName, note from t_role where id = #{id}
+	</select>
+
+	<select id="findRoles" parameterType="string" resultType="role">
+		select id, role_name as roleName, note from t_role
+		where role_name like concat('%', #{roleName}, '%')
+	</select>
+</mapper>

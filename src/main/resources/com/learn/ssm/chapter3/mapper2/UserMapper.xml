@@ -2,7 +2,7 @@
 <!DOCTYPE mapper
   PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
   "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.learn.ssm.chapter3.mapper.UserMapper">
+<mapper namespace="com.learn.ssm.chapter3.mapper2.UserMapper">
 	<resultMap id="userMapper" type="user">
 		<result property="id" column="id" />
 		<result property="userName" column="user_name" />
@@ -20,6 +20,12 @@
 		<result property="email" column="email" />
 		<result property="note" column="note" />
 	</resultMap>
+
+	<select id="countUserByFirstName" parameterType="string" resultType="int">
+		select count(*) as total from t_user
+		WHERE user_name LIKE concat(#{firstName}, '%')
+	</select>
+
 	<select id="getUser" resultMap="userMapper" parameterType="long">
 	  select id, user_name, password, sex, mobile, tel, email, note from t_user 
       where id = #{id}
