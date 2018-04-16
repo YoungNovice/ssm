@@ -9,7 +9,7 @@ import java.sql.Connection;
 import java.util.Properties;
 
 /**
- * @author Young
+ * @author xuanyang
  */
 public class MyTransactionFactory implements TransactionFactory {
 

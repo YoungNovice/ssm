@@ -2,6 +2,9 @@ package com.learn.ssm.chapter3.param;
 
 import java.util.Date;
 
+/**
+ * @author xuanyang
+ */
 public class PdCountRoleParams {
 
 	private String roleName;

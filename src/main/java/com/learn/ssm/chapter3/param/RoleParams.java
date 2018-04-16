@@ -1,5 +1,8 @@
 package com.learn.ssm.chapter3.param;
 
+/**
+ * @author xuanyang
+ */
 public class RoleParams {
 	private String roleName;
 	private String note;

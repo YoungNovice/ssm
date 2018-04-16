@@ -13,7 +13,7 @@ import java.sql.ResultSet;
 import java.sql.SQLException;
 
 /**
- * @author Young
+ * @author xuanyang
  */
 @MappedTypes(SexEnum.class)
 @MappedJdbcTypes(JdbcType.INTEGER)

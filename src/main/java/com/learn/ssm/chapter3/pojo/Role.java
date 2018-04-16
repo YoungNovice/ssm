@@ -1,9 +1,12 @@
 package com.learn.ssm.chapter3.pojo;
 
-import java.io.Serializable;
-
 import org.apache.ibatis.type.Alias;
 
+import java.io.Serializable;
+
+/**
+ * @author xuanyang
+ */
 @Alias("role")
 public class Role implements Serializable {
 

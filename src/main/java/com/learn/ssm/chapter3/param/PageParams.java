@@ -1,5 +1,8 @@
 package com.learn.ssm.chapter3.param;
 
+/**
+ * @author xuanyang
+ */
 public class PageParams {
 	private int start;
 	private int limit;

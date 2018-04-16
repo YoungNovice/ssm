@@ -1,9 +1,12 @@
 package com.learn.ssm.chapter3.param;
 
-import java.util.List;
-
 import com.learn.ssm.chapter3.pojo.Role;
 
+import java.util.List;
+
+/**
+ * @author xuanyang
+ */
 public class PdFindRoleParams {
 	private String roleName;
 	private int start;

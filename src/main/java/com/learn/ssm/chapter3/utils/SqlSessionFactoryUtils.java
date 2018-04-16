@@ -17,7 +17,7 @@ import java.io.IOException;
 import java.io.InputStream;
 
 /**
- * @author Young
+ * @author xuanyang
  */
 public class SqlSessionFactoryUtils {
 

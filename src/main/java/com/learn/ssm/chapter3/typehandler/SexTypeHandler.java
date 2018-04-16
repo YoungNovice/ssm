@@ -1,15 +1,17 @@
 package com.learn.ssm.chapter3.typehandler;
 
+import com.learn.ssm.chapter3.enumeration.SexEnum;
+import org.apache.ibatis.type.BaseTypeHandler;
+import org.apache.ibatis.type.JdbcType;
+
 import java.sql.CallableStatement;
 import java.sql.PreparedStatement;
 import java.sql.ResultSet;
 import java.sql.SQLException;
 
-import com.learn.ssm.chapter3.enumeration.SexEnum;
-import org.apache.ibatis.type.BaseTypeHandler;
-import org.apache.ibatis.type.JdbcType;
-
-
+/**
+ * @author xuanyang
+ */
 public class SexTypeHandler extends BaseTypeHandler<SexEnum>{
 
 	@Override

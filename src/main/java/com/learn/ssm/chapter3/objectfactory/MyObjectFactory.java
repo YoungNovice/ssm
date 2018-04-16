@@ -7,7 +7,7 @@ import java.util.List;
 import java.util.Properties;
 
 /**
- * @author Young
+ * @author xuanyang
  */
 public class MyObjectFactory extends DefaultObjectFactory {
 

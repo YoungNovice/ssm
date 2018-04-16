@@ -10,7 +10,7 @@ import java.sql.Connection;
 import java.sql.SQLException;
 
 /**
- * @author Young
+ * @author xuanyang
  */
 public class MyJdbcTransaction extends JdbcTransaction implements Transaction{
 
