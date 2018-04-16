@@ -8,9 +8,9 @@ import javax.sql.DataSource;
 import java.util.Properties;
 
 /**
+ * 不使用系统默认的数据源 ， 采用dbcp数据源
  *
- * @author Young
- * @date 2018/4/9
+ * @author xuanyang
  */
 public class MyDataSourceFactory implements DataSourceFactory {
 

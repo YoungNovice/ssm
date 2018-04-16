@@ -5,6 +5,8 @@ import org.apache.ibatis.annotations.Select;
 
 
 /**
+ * map sql by anntation
+ *
  * @author Young
  */
 public interface RoleMapper2 {
