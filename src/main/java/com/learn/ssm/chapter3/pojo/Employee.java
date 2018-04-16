@@ -1,10 +1,17 @@
 package com.learn.ssm.chapter3.pojo;
 
 import com.learn.ssm.chapter3.enumeration.SexEnum;
+import org.apache.ibatis.type.Alias;
 
 import java.util.Date;
 import java.util.List;
 
+/**
+ * 用户
+ *
+ * @author xuanyang
+ */
+@Alias("employee")
 public class Employee {
 
 	private Long id;

@@ -1,5 +1,11 @@
 package com.learn.ssm.chapter3.pojo;
 
+import org.apache.ibatis.type.Alias;
+
+/**
+ * @author xuanyang
+ */
+@Alias("task")
 public class Task {
 	private Long id;
 	private String title;
