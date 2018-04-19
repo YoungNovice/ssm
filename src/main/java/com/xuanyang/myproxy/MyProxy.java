@@ -7,8 +7,8 @@ import java.lang.reflect.InvocationHandler;
  */
 public class MyProxy {
 
-    public static Object newProxyInstance(ClassLoader loader,
-              Class<?>[] interfaces, InvocationHandler h)
+    public static Object newProxyInstance(Class<?>[] interfaces,
+                      InvocationHandler h)
             throws IllegalArgumentException {
         StringBuilder builder = new StringBuilder("");
         String proxyName = "TestProxy";
@@ -20,8 +20,6 @@ public class MyProxy {
         builder.append("public class ").append(proxyName).append(" implements ");
         builder.append(interfaceString);
         builder.append(" {\n");
-
-
 
         for (Class<?> Interface : interfaces) {
 
