@@ -1,4 +1,5 @@
-# Proxy的newProxyInstance方法生成代理类的过程
+# Proxy类
+##### Proxy的newProxyInstance方法生成代理类的过程
  > 它是由Proxy 类生成源码
  > 由Java编译器 编译它
  > 由ClassLoader 加载它
