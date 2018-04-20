@@ -5,6 +5,6 @@ package com.xuanyang.myproxy.demo;
  */
 public interface Testable {
 
-    String test(int a);
+    void test();
 
 }
