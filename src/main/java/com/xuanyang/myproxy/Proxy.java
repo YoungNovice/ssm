@@ -10,6 +10,7 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
+import java.util.ArrayList;
 
 /**
  * Proxy 类动态生成代理类的源码 编译 加载 构造
@@ -33,11 +34,23 @@ public class Proxy {
 		 *
 		 */
 		for(Method m : methods) {
+			// 返回值类型的名字
+			String retrunTypeName = m.getReturnType().getName();
+			int parameterCount = m.getParameterCount();
+			Class<?>[] parameterTypes = m.getParameterTypes();
+			ArrayList<Class> classes = new ArrayList<>();
+			for (Class<?> parameterType : parameterTypes) {
+				String parameterTypeName = parameterType.getName();
+				String parameterTypeNameClassString = parameterTypeName + ".class";
+			}
+
 			methodStr += "@Override" + rt +
-						 "public void " + m.getName() + "() {" + rt +
+						 "public " + retrunTypeName + " " + m.getName() + "() {" + rt +
 						 "    try {" + rt +
+						 "    int paramCount = " + parameterCount + ";" + rt +
+						 " "  + rt +
 						 "    Method md = " + infce.getName() + ".class.getMethod(\"" + m.getName() + "\");" + rt +
-						 "    h.invoke(this, md, null);" + rt +
+						 "    return h.invoke(this, md, null);" + rt +
 						 "    }catch(Exception e) {e.printStackTrace();}" + rt +
 						
 						 "}";
