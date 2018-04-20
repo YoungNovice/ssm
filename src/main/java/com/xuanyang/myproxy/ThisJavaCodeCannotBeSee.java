@@ -2,8 +2,8 @@ package com.xuanyang.myproxy;
 
 import java.lang.reflect.Method;
 
-public class $Proxy1 implements com.xuanyang.myproxy.demo.Testable{
-    public $Proxy1(InvocationHandler h) {
+public class ThisJavaCodeCannotBeSee implements com.xuanyang.myproxy.demo.Testable{
+    public ThisJavaCodeCannotBeSee(InvocationHandler h) {
         this.h = h;
     }
     com.xuanyang.myproxy.InvocationHandler h;
