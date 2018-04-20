@@ -10,7 +10,6 @@ import java.lang.reflect.Constructor;
 import java.lang.reflect.Method;
 import java.net.URL;
 import java.net.URLClassLoader;
-import java.util.ArrayList;
 
 /**
  * Proxy 类动态生成代理类的源码 编译 加载 构造
@@ -21,6 +20,7 @@ public class Proxy {
 	public static Object newProxyInstance(Class infce, InvocationHandler h) throws Exception {
 		String methodStr = "";
 		String rt = "\r\n";
+		String paramPrefix = "param";
 		
 		Method[] methods = infce.getMethods();
 
@@ -36,23 +36,43 @@ public class Proxy {
 		for(Method m : methods) {
 			// 返回值类型的名字
 			String retrunTypeName = m.getReturnType().getName();
+			// 参数列表的个数
 			int parameterCount = m.getParameterCount();
+			// 参数列表类型
 			Class<?>[] parameterTypes = m.getParameterTypes();
-			ArrayList<Class> classes = new ArrayList<>();
-			for (Class<?> parameterType : parameterTypes) {
-				String parameterTypeName = parameterType.getName();
-				String parameterTypeNameClassString = parameterTypeName + ".class";
+			StringBuilder paramStringBuilder = new StringBuilder("");
+			StringBuilder paramValueBuilder = new StringBuilder("");
+			for (int i = 0; i < parameterTypes.length; i++) {
+				Class<?> parameterType = parameterTypes[i];
+				// 参数构造
+				paramStringBuilder.append(parameterType.getName());
+				paramStringBuilder.append(" ");
+				paramStringBuilder.append(paramPrefix).append(i);
+				paramStringBuilder.append(",");
+
+				// 内部值构造
+				paramValueBuilder.append("paramClazz[").append(i).append("]").append(" = ");
+				paramValueBuilder.append(parameterType.getName()).append(".class;");
+				paramValueBuilder.append("params[").append(i).append("]");
+				paramValueBuilder.append(" = ").append("param").append(i).append(";");
 			}
+			// 参数列表字符串
+			String paramString = paramStringBuilder.substring(0, paramStringBuilder.lastIndexOf(","));
+
+			//  paramClazz[0] = int.class;params[0] = param0;
+			String paramValue = paramValueBuilder.toString();
 
 			methodStr += "@Override" + rt +
-						 "public " + retrunTypeName + " " + m.getName() + "() {" + rt +
+						 "public " + retrunTypeName + " " + m.getName() + "(" + paramString + ") {" + rt +
 						 "    try {" + rt +
 						 "    int paramCount = " + parameterCount + ";" + rt +
-						 " "  + rt +
-						 "    Method md = " + infce.getName() + ".class.getMethod(\"" + m.getName() + "\");" + rt +
-						 "    return h.invoke(this, md, null);" + rt +
+						 " 	  Class[] paramClazz = new Class[paramCount];" + rt +
+					     "    Object[] params = new Object[paramCount];	"  + rt +
+						 "    " + paramValue + rt +
+						 "    Method md = " + infce.getName() + ".class.getMethod(\"" + m.getName() + "\", paramClazz);" + rt +
+						 "    return ("+ retrunTypeName +") h.invoke(this, md, params);" + rt +
 						 "    }catch(Exception e) {e.printStackTrace();}" + rt +
-						
+						 "  return null ;" + rt +
 						 "}";
 		}
 		
@@ -63,8 +83,6 @@ public class Proxy {
 			"    public $Proxy1(InvocationHandler h) {" + rt +
 			"        this.h = h;" + rt +
 			"    }" + rt +
-			
-			
 			"    com.xuanyang.myproxy.InvocationHandler h;" + rt +
 							
 			methodStr +
