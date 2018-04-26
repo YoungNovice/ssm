@@ -7,6 +7,18 @@ public class PageParams {
 	private int start;
 	private int limit;
 
+	private Integer page;
+	private Integer pageSzie;
+	private Boolean useFlag;
+
+	private Boolean checkFlag;
+	private Boolean cheanOrderBy;
+	private Integer total;
+
+
+
+
+
 	public int getStart() {
 		return start;
 	}
