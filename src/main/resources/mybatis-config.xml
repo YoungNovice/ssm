@@ -27,6 +27,14 @@
     <plugin interceptor="com.learn.ssm.chapter3.interceptor.MyInterceptor">
       <property name="aa" value="123" />
     </plugin>
+
+    <!--<plugin interceptor="com.learn.ssm.chapter3.interceptor.PagePlugin">
+      <property name="default.page" value="1" />
+      <property name="default.pageSize" value="20" />
+      <property name="default.useFlag" value="true" />
+      <property name="default.checkFlag" value="false" />
+      <property name="default.cleanOrderBy" value="false" />
+    </plugin>-->
   </plugins>
 
   <!-- 数据库环境 -->
